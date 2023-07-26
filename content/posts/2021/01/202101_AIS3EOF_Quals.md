@@ -1,5 +1,6 @@
 ---
 title: 'EOF2021 Quals Write-Up' 
+author: "TwinkleStar03"
 tags: [AIS3 EOF 2021, Write-Up]
 categories: [CTF]
 date: 2021-01-20

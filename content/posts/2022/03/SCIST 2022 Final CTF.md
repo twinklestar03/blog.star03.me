@@ -1,5 +1,6 @@
 ---
 title: '2022 Final CTF Misc 官方解答'
+author: "TwinkleStar03"
 tags: [SCIST, Write-Up]
 categories: [CTF]
 date: 2022-08-11

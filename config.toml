@@ -65,8 +65,8 @@ paginate = 5
 [languages]
   [languages.en]
     languageName = "English"
-    title = "StarBlog"
-    subtitle = "Researches and thoughts about the world"
+    title = "Starry Skies"
+    subtitle = "Researches and thoughts about the world (Mostly CyberSecurity)"
     owner = "TwinkleStar03"
     keywords = ""
     copyright = "TwinkleStar03"
@@ -79,7 +79,7 @@ paginate = 5
     missingBackButtonLabel = "Back to home page"
 
     [languages.en.params.logo]
-      logoText = "StarBlog"
+      logoText = "Starry Skies"
       logoHomeLink = "/"
 
     [languages.en.menu]

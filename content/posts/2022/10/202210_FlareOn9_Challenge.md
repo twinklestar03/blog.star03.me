@@ -1,5 +1,6 @@
 ---
 title: 'Flare-On Challenge 9 Write-Up'
+author: "TwinkleStar03"
 tags: [Reverse Engineering, Flare-On Challenge, Write-Up]
 categories: [CTF]
 date: 2022-10-25

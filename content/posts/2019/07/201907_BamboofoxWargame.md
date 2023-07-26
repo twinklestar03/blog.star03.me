@@ -1,5 +1,6 @@
 ---
 title: 'Write-up:: Bamboofox-Wargame'
+author: "TwinkleStar03"
 tags: [BamboofoxCTF, Pwnable, Write-Up]
 categories: [CTF]
 date: 2019-07-21
