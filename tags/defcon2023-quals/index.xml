@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DEFCON2023 Quals on StarBlog</title><link>https://blog.star03.me/tags/defcon2023-quals/</link><description>Recent content in DEFCON2023 Quals on StarBlog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>TwinkleStar03</copyright><lastBuildDate>Thu, 01 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.star03.me/tags/defcon2023-quals/index.xml" rel="self" type="application/rss+xml"/><item><title>DEFCON2023 - opacity</title><link>https://blog.star03.me/posts/2023/06/defcon-quals-opacity/</link><pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate><guid>https://blog.star03.me/posts/2023/06/defcon-quals-opacity/</guid><description>Writeup of the reverse challenge Opacity in DEFCON2023 Quals: A DRM-protected circuit emulation.
+I found this challenge to be highly intriguing, as it took us a considerable amount of time to unravel its true purpose. The implementation of a fundamental gate in this challenge was particularly fascinating, which is why I felt compelled to create a detailed writeup for it.
+DRM Protected Environment (init_drm) The DRM is actually a patched qemu-aarch64 which will use user provided license as PAC key.</description><content>&lt;hr>
+&lt;p>Writeup of the reverse challenge &lt;code>Opacity&lt;/code> in DEFCON2023 Quals: A DRM-protected circuit emulation.&lt;/p>
+&lt;p>I found this challenge to be highly intriguing, as it took us a considerable amount of time to unravel its true purpose.
+The implementation of a fundamental gate in this challenge was particularly fascinating, which is why I felt compelled to create a detailed writeup for it.&lt;/p>
+&lt;h2 id="drm-protected-environment-init_drm">DRM Protected Environment (&lt;code>init_drm&lt;/code>)&lt;/h2>
+&lt;p>The DRM is actually a patched &lt;code>qemu-aarch64&lt;/code> which will use user provided license as PAC key.&lt;/p>
+&lt;p>This is how PAC key is set:&lt;/p>
+&lt;ul>
+&lt;li>license is a 16-bytes sequence, which will applied to &lt;code>qemu_base+0x48D390&lt;/code> @ &lt;code>.rodata&lt;/code>&lt;/li>
+&lt;li>&lt;code>qemu_base+0x22BCCC&lt;/code>(&lt;a href="https://github.com/qemu/qemu/blob/master/linux-user/aarch64/target_prctl.h#L106">do_prctl_reset_keys&lt;/a>) is replaced with code that perform &lt;code>memcpy&lt;/code> from &lt;code>qemu_base+0x48D390&lt;/code> to &lt;code>PAC_KEY_B&lt;/code> (&lt;code>&amp;amp;env-&amp;gt;keys.apib&lt;/code>)&lt;/li>
+&lt;li>A runtime (&lt;code>init_drm&lt;/code>) perform patch and &lt;code>exec&lt;/code> itself to a patched qemu and run circuit emulator (&lt;code>run_prog&lt;/code>)&lt;/li>
+&lt;/ul>
+&lt;h2 id="run_prog-circuit-emulator">&lt;code>run_prog&lt;/code> (Circuit Emulator)&lt;/h2>
+&lt;h3 id="pac-as-nand">PAC as NAND&lt;/h3>
+&lt;p>Using PAC operation as a way to inhibit the nature of bitwise operation is such a cool idea.&lt;/p>
+&lt;p>Here&amp;rsquo;s how PAC as NAND is made:&lt;/p>
+&lt;p>Every gate have two output state (0 or 1):&lt;/p>
+&lt;ul>
+&lt;li>Use a random number to represent the state 0 or 1
+Building NAND gate:&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>Suppose GateA and GateB both output 1, therefore we have two random that represent 1 here (we called it &lt;code>gateA_rand_1&lt;/code> and &lt;code>gateB_rand_1&lt;/code>)&lt;/li>
+&lt;li>Use &lt;code>gateA_rand_1&lt;/code> as Pointer and &lt;code>gateB_rand_1&lt;/code> as modifier, thus we&amp;rsquo;ll get &lt;code>result_pac&lt;/code> which is signed &lt;code>gateA_rand_1&lt;/code>&lt;/li>
+&lt;li>Check other cases, where GateA and GateB will output (00, 01, 10), AUT should fail in those cases
+&lt;ul>
+&lt;li>If the check failed, the modifier got incremented (modifier++)&lt;/li>
+&lt;li>Repeat until all check success&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Save information for NAND
+&lt;ul>
+&lt;li>Random values for 0 and 1 from both input&lt;/li>
+&lt;li>Modifier increment&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;p>Using(Evaluate) NAND Gate:&lt;/p>
+&lt;ol>
+&lt;li>Acquire output state numbers from both input&lt;/li>
+&lt;li>Perform AUT
+&lt;ul>
+&lt;li>If success, then both output is 1&lt;/li>
+&lt;li>If failed, output might be (00, 01, 10)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Left shift the AUT result, leave the high byte there
+&lt;ul>
+&lt;li>If the AUT success the number will be original value where LSB should be &lt;code>000000&lt;/code>&lt;/li>
+&lt;li>If the AUT failed the number will be invalidate where LSB leave non-zero number&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Use the shifted result as output of NAND gate
+&lt;ul>
+&lt;li>The PAC perform AND operation, and shift perform NOT operation, which result in NAND gate&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="solution">Solution&lt;/h2>
+&lt;h3 id="figure-out-opcodes">Figure Out Opcodes&lt;/h3>
+&lt;p>After our team get a consensus about the VM and the circuit, we found out it&amp;rsquo;s actually a CPU run a tiny program on it.
+We attempt to guess all the opcode one by one by observing the state of the machine before/after an operation is done.&lt;/p>
+&lt;p>After we built a opcode table, we can start disassemble target program.&lt;/p>
+&lt;h3 id="bytecode-disassembly">Bytecode Disassembly&lt;/h3>
+&lt;p>The program makes a checksum based on user-input. We can just brute-force this checksum function to find a valid input and send it to remote server.&lt;/p>
+&lt;pre tabindex="0">&lt;code>0: 00000100
+1: 11000111 cmp r0, 0x00
+2: 00100110 jmp 4
+3: 11000100 invalid
+4: 00001000 read
+5: 00000111 cmp r0, 0x3f
+6: 01000110 jz 8
+7: 01000100 hlt
+8: 00111011 add r3, 0x3f
+9: 00001000 read
+10: 11000111 cmp r0, 0x00
+11: 10111110 jz TLE
+12: 00011011 mul r1, 0x3f
+13: 10100001 ROT3 r2, 2
+14: 11110001 ROT3 r3, 3
+15: 00101001 XOR r2, r0
+16: 00111001 XOR r3, r0
+17: 01010001 ROT3 r1, 1
+18: 10100110 jz 20; break
+19: 01001010 jmp 9
+20: 00001000 read
+21: 00000111 cmp r0, 0x3f
+22: 11000110 jz 24
+23: 10111010 TLE ; jmp 23
+24: 01100111 cmp r2, 0xd5
+25: 11011110 jz 27
+26: 10111010 TLE
+27: 10110111 cmp r3, 0x54
+28: 11110110 jz 30; FLG
+29: 10111010 TLE
+30: 01100000 FLG
+31: 00000000
+&lt;/code>&lt;/pre></content></item></channel></rss>

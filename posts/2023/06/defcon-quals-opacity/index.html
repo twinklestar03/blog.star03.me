@@ -1,0 +1,40 @@
+<!doctype html><html lang=en><head><title>DEFCON2023 - opacity :: StarBlog</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Writeup of the reverse challenge `Opacity` in DEFCON2023 Quals: A DRM-protected circuit emulation."><meta name=keywords content><meta name=robots content="noodp"><link rel=canonical href=https://blog.star03.me/posts/2023/06/defcon-quals-opacity/><link rel=stylesheet href=https://blog.star03.me/styles.css><link rel="shortcut icon" href=https://blog.star03.me/favicon.ico><meta name=twitter:card content="summary"><meta name=twitter:site content><meta name=twitter:creator content="TwinkleStar03"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="og:title" content="DEFCON2023 - opacity"><meta property="og:description" content="Writeup of the reverse challenge `Opacity` in DEFCON2023 Quals: A DRM-protected circuit emulation."><meta property="og:url" content="https://blog.star03.me/posts/2023/06/defcon-quals-opacity/"><meta property="og:site_name" content="StarBlog"><meta property="og:image" content="https://blog.star03.me/favicon.ico"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="627"><meta property="article:section" content="CTF"><meta property="article:published_time" content="2023-06-01 00:00:00 +0000 UTC"></head><body class=peach_yellow><div class="container center headings--one-size"><header class=header><div class=header__inner><div class=header__logo><div class=logo><a href=/>StarBlog</a></div></div><ul class="menu menu--mobile"><li class=menu__trigger>Menu&nbsp;▾</li><li><ul class=menu__dropdown><li><a href=/about>About</a></li><li><a href=/categories>Categories</a></li><li><a href=/tags>Tags</a></li></ul></li></ul></div><nav class=navigation-menu><ul class="navigation-menu__inner menu--desktop"><li><a href=/about>About</a></li><li><a href=/categories>Categories</a></li><li><a href=/tags>Tags</a></li></ul></nav></header><div class=content><article class=post><h1 class=post-title><a href=https://blog.star03.me/posts/2023/06/defcon-quals-opacity/>DEFCON2023 - opacity</a></h1><div class=post-meta><time class=post-date>2023-06-01</time><span class=post-author>TwinkleStar03</span></div><span class=post-tags>#<a href=https://blog.star03.me/tags/defcon2023-quals/>DEFCON2023 Quals</a>&nbsp;
+#<a href=https://blog.star03.me/tags/reverse-engineering/>Reverse Engineering</a>&nbsp;</span><div class=table-of-contents><h2>Table of Contents</h2><nav id=TableOfContents><ul><li><a href=#drm-protected-environment-init_drm>DRM Protected Environment (<code>init_drm</code>)</a></li><li><a href=#run_prog-circuit-emulator><code>run_prog</code> (Circuit Emulator)</a><ul><li><a href=#pac-as-nand>PAC as NAND</a></li></ul></li><li><a href=#solution>Solution</a><ul><li><a href=#figure-out-opcodes>Figure Out Opcodes</a></li><li><a href=#bytecode-disassembly>Bytecode Disassembly</a></li></ul></li></ul></nav></div><div class=post-content><div><hr><p>Writeup of the reverse challenge <code>Opacity</code> in DEFCON2023 Quals: A DRM-protected circuit emulation.</p><p>I found this challenge to be highly intriguing, as it took us a considerable amount of time to unravel its true purpose.
+The implementation of a fundamental gate in this challenge was particularly fascinating, which is why I felt compelled to create a detailed writeup for it.</p><h2 id=drm-protected-environment-init_drm>DRM Protected Environment (<code>init_drm</code>)<a href=#drm-protected-environment-init_drm class=hanchor arialabel=Anchor>&#8983;</a></h2><p>The DRM is actually a patched <code>qemu-aarch64</code> which will use user provided license as PAC key.</p><p>This is how PAC key is set:</p><ul><li>license is a 16-bytes sequence, which will applied to <code>qemu_base+0x48D390</code> @ <code>.rodata</code></li><li><code>qemu_base+0x22BCCC</code>(<a href=https://github.com/qemu/qemu/blob/master/linux-user/aarch64/target_prctl.h#L106>do_prctl_reset_keys</a>) is replaced with code that perform <code>memcpy</code> from <code>qemu_base+0x48D390</code> to <code>PAC_KEY_B</code> (<code>&env->keys.apib</code>)</li><li>A runtime (<code>init_drm</code>) perform patch and <code>exec</code> itself to a patched qemu and run circuit emulator (<code>run_prog</code>)</li></ul><h2 id=run_prog-circuit-emulator><code>run_prog</code> (Circuit Emulator)<a href=#run_prog-circuit-emulator class=hanchor arialabel=Anchor>&#8983;</a></h2><h3 id=pac-as-nand>PAC as NAND<a href=#pac-as-nand class=hanchor arialabel=Anchor>&#8983;</a></h3><p>Using PAC operation as a way to inhibit the nature of bitwise operation is such a cool idea.</p><p>Here&rsquo;s how PAC as NAND is made:</p><p>Every gate have two output state (0 or 1):</p><ul><li>Use a random number to represent the state 0 or 1
+Building NAND gate:</li></ul><ol><li>Suppose GateA and GateB both output 1, therefore we have two random that represent 1 here (we called it <code>gateA_rand_1</code> and <code>gateB_rand_1</code>)</li><li>Use <code>gateA_rand_1</code> as Pointer and <code>gateB_rand_1</code> as modifier, thus we&rsquo;ll get <code>result_pac</code> which is signed <code>gateA_rand_1</code></li><li>Check other cases, where GateA and GateB will output (00, 01, 10), AUT should fail in those cases<ul><li>If the check failed, the modifier got incremented (modifier++)</li><li>Repeat until all check success</li></ul></li><li>Save information for NAND<ul><li>Random values for 0 and 1 from both input</li><li>Modifier increment</li></ul></li></ol><p>Using(Evaluate) NAND Gate:</p><ol><li>Acquire output state numbers from both input</li><li>Perform AUT<ul><li>If success, then both output is 1</li><li>If failed, output might be (00, 01, 10)</li></ul></li><li>Left shift the AUT result, leave the high byte there<ul><li>If the AUT success the number will be original value where LSB should be <code>000000</code></li><li>If the AUT failed the number will be invalidate where LSB leave non-zero number</li></ul></li><li>Use the shifted result as output of NAND gate<ul><li>The PAC perform AND operation, and shift perform NOT operation, which result in NAND gate</li></ul></li></ol><h2 id=solution>Solution<a href=#solution class=hanchor arialabel=Anchor>&#8983;</a></h2><h3 id=figure-out-opcodes>Figure Out Opcodes<a href=#figure-out-opcodes class=hanchor arialabel=Anchor>&#8983;</a></h3><p>After our team get a consensus about the VM and the circuit, we found out it&rsquo;s actually a CPU run a tiny program on it.
+We attempt to guess all the opcode one by one by observing the state of the machine before/after an operation is done.</p><p>After we built a opcode table, we can start disassemble target program.</p><h3 id=bytecode-disassembly>Bytecode Disassembly<a href=#bytecode-disassembly class=hanchor arialabel=Anchor>&#8983;</a></h3><p>The program makes a checksum based on user-input. We can just brute-force this checksum function to find a valid input and send it to remote server.</p><pre tabindex=0><code>0: 00000100
+1: 11000111 cmp r0, 0x00
+2: 00100110 jmp 4
+3: 11000100   invalid
+4: 00001000 read
+5: 00000111 cmp r0, 0x3f
+6: 01000110 jz 8
+7: 01000100   hlt
+
+8: 00111011 add r3, 0x3f
+9: 00001000  read
+10: 11000111  cmp r0, 0x00
+11: 10111110  jz TLE
+12: 00011011  mul r1, 0x3f
+13: 10100001  ROT3 r2, 2
+14: 11110001  ROT3 r3, 3
+15: 00101001  XOR r2, r0
+16: 00111001  XOR r3, r0
+17: 01010001  ROT3 r1, 1
+18: 10100110  jz 20; break
+19: 01001010 jmp 9
+
+20: 00001000 read
+21: 00000111 cmp r0, 0x3f
+22: 11000110 jz 24
+23: 10111010   TLE ; jmp 23
+24: 01100111 cmp r2, 0xd5
+25: 11011110 jz 27
+26: 10111010   TLE
+27: 10110111 cmp r3, 0x54
+28: 11110110 jz 30; FLG
+29: 10111010   TLE
+30: 01100000 FLG
+31: 00000000
+</code></pre></div></div></article></div><footer class=footer><div class=footer__inner><div class="copyright copyright--user"><span>TwinkleStar03 :: 2023</span>
+<span>:: Theme originate from <a href=https://github.com/panr/hugo-theme-terminal target=_blank>panr</a></span></div></div></footer><script type=text/javascript src=/bundle.min.js></script></div></body></html>
