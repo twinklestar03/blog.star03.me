@@ -4,7 +4,7 @@ date: "2023-06-01"
 author: "TwinkleStar03"
 description: "Writeup of the reverse challenge `Opacity` in DEFCON2023 Quals: A DRM-protected circuit emulation."
 toc: true
-tags: [DEFCON2023 Quals, Reverse Engineering]
+tags: [Reverse Engineering, DEFCON2023 Quals, Write-Up]
 categories: [CTF]
 ---
 
