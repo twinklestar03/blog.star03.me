@@ -1,8 +1,8 @@
 ---
 title: 'AIS3 PreExam 2020 Write-Up'
 author: "TwinkleStar03"
-tags: [AIS3 2020 Pre-Exam, Write-Up]
-categories: [CTF]
+tags: [AIS3 2020 Pre-Exam]
+categories: [Write-Up]
 date: 2020-06-20
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: 'Write-up:: AIS3 PreExam 2017 - Pwn End'
 author: TwinkleStar03
-tags: [AIS3 2017 PreExam, Pwnable, Write-Up]
-categories: [CTF]
+tags: [AIS3 2017 PreExam, Pwnable]
+categories: [Write-Up]
 date: 2019-06-26
 description: AIS3-2017 的題目，Pwn-end。
 ---

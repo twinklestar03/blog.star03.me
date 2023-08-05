@@ -1,8 +1,8 @@
 ---
 title: '2022 Final CTF Misc 官方解答'
 author: "TwinkleStar03"
-tags: [SCIST, Write-Up]
-categories: [CTF]
+tags: [SCIST Final CTF 2022]
+categories: [Write-Up]
 date: 2022-08-11
 description: 幫 SCIST 出了一個系列 Forensic 題目，共三題的 Intruder 題目官方解答。
 ---

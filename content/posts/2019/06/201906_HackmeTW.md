@@ -1,10 +1,10 @@
 ---
-title: 'HackmeTw'
+title: 'HackmeTw Wargame Write-Up'
 author: TwinkleStar03
-tags: [Hackme.tw, Write-Up]
-categories: [CTF]
+tags: [Hackme.tw]
+categories: [Write-Up]
 date: 2019-06-24
-description: 練習CTF相關知識的過程與心得。
+description: 練習 CTF 相關知識的過程與心得。
 ---
 
 [網站在這邊>~<](https://hackme.inndy.tw)

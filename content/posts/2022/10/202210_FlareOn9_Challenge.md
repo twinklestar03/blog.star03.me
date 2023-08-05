@@ -1,8 +1,8 @@
 ---
 title: 'Flare-On Challenge 9 Write-Up'
 author: "TwinkleStar03"
-tags: [Reverse Engineering, Flare-On Challenge, Write-Up]
-categories: [CTF]
+tags: [Reverse Engineering, Flare-On Challenge]
+categories: [Write-Up]
 date: 2022-10-25
 description: Flare-On Challenge 9 的玩走過程與心得
 ---

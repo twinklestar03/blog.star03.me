@@ -2,7 +2,7 @@
 title: 'TeamT5 資安研習營 - 實作題目分析'
 author: "TwinkleStar03"
 tags: [MalwareAnalysis, TeamT5 SecurityCamp]
-categories: [CTF]
+categories: [Write-Up]
 date: 2021-01-10
 description: TeamT5 資安研習營前測，程式分析過程與心得。
 ---

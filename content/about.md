@@ -5,16 +5,19 @@ toc: false
 description: "About TwinkleStar03"
 ---
 
+
+# About Me
+Here's TwinkleStar03.
+I am a Reverse-Engineering and Binary-Exploitation enthusiast! Currently a member in XxTSJxX.
+
 - Username: TwinkleStar03
 - Email: `echo "c3RhckB0d2lua2xlc3RhcjAzLmNvbQo=" | base64 -d`  
-- Discord: star.03 
+- Discord: `star.03 `
 - NYCU CSIT
 - Security Research Intern @ CyCraft (2023~)
 
-> Reverse / Pwnable / Game Hacking
-
-## Cyber Security Experiences
-### CTFs
+# Contest
+## CTFs
 - 2023
     - DEFCON 2023 - Finalist - TWN48
 - 2022
@@ -39,28 +42,6 @@ description: "About TwinkleStar03"
     - HITCONCTF-2019 Qual
     - MyFirstCTF2019
 
-### Public Speaking
-- How to Hack CS:GO @ SITCON2021
-- 探討自動化程式弱點分析 @ 第四屆台灣好厲駭期末發表會
-
-### Course Speaker
-- ISIP 資安深根營隊 Pwnable 講師
-- SCIST 2023 Pwnable 講師
-- 交大網路安全策進社 111 上學期 - Game Hacking 講師
-- 交大網路安全策進社 110 下學期 - 逆向工程講師
-- 交大網路安全策進社 110 上學期 - 逆向工程講師
-
-### Misc
-- AIS3 2023 - TA
-- AIS3 EOF 2023 - Challenge Author / 3D CGI Design
-- 台灣好厲駭
-    - 第四屆台灣好厲駭 - 結訓學員 
-    - 第五屆台灣好厲駭 - 結訓學員
-- AIS3 2020 最佳專題獎 
-    - 軟體開發安全第五組 
-    - Secret Keeper 主要開發者
-- Ret2NOP Founder
-
 ## Robotic Competition
 - 擔任 FRC Team #7673 隊長與軟體開發組組長
 - SBPLI Long Island Regional #1 - 榮獲 Individual Excellence
@@ -71,6 +52,30 @@ description: "About TwinkleStar03"
 - Taiwan International Robotics Tournament(VEX EDR) - Amaze Award
 - 智能化技術暨機器人國際邀請賽(VEX EDR) - 2nd
 - Asia-Pacific Robotics Championship(VEX EDR) - Bronze Award
+
+# Public Speaking
+## Conferences
+- How to Hack CS:GO @ SITCON2021
+- 探討自動化程式弱點分析 @ 第四屆台灣好厲駭期末發表會
+
+## Courses
+- ISIP 資安深根營隊 Pwnable 講師
+- SCIST 2023 Pwnable 講師
+- 交大網路安全策進社 111 上學期 - Game Hacking 講師
+- 交大網路安全策進社 110 下學期 - 逆向工程講師
+- 交大網路安全策進社 110 上學期 - 逆向工程講師
+
+# Misc
+## Contributions
+- AIS3 2023 - TA
+- AIS3 EOF 2023 - Challenge Author / 3D CGI Design
+- 台灣好厲駭
+    - 第四屆台灣好厲駭 - 結訓學員 
+    - 第五屆台灣好厲駭 - 結訓學員
+- AIS3 2020 最佳專題獎 
+    - 軟體開發安全第五組 
+    - Secret Keeper 主要開發者
+- Ret2NOP Founder
 
 ## Community
 - SITCON 2022 - 會眾

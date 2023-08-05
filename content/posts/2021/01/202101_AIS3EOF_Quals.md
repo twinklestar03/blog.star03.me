@@ -1,8 +1,8 @@
 ---
 title: 'EOF2021 Quals Write-Up' 
 author: "TwinkleStar03"
-tags: [AIS3 EOF 2021, Write-Up]
-categories: [CTF]
+tags: [AIS3 EOF 2021]
+categories: [Write-Up]
 date: 2021-01-20
 description: AIS3 EOF 2021 初賽解題過程與心得。
 ---
