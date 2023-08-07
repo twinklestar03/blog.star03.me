@@ -1,5 +1,5 @@
 ---
-title: 'SCIST 2023 Final CTF Pwnable / Reverse官方解答'
+title: 'SCIST 2023 Final CTF Pwnable / Reverse 官方解答'
 author: "TwinkleStar03"
 tags: [Reverse Engineering, Pwnable, SCIST 2023]
 categories: [Write-Up]
