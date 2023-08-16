@@ -11,6 +11,8 @@ description: SCIST 2023 期末考 CTF Pwnable 題解
 ## 前言
 這次幫 SCIST 設計了 3 題 Pwnable 與 1 題 Reverse，難度大概在簡單到中等。
 
+---
+
 ## Pwnable
 ### Way Back Home
 - 難度: 易
@@ -71,6 +73,8 @@ description: SCIST 2023 期末考 CTF Pwnable 題解
             : "r" (stack+(LEN_STACK/2))
     );
 ```
+
+---
 
 ## Reverse
 

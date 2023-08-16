@@ -15,22 +15,19 @@ Here's TwinkleStar03, I'm Reverse-Engineering and Binary-Exploitation enthusiast
 ## Contest
 ### International CTFs
 #### Play With Team
-| DEFCON Final, Pending, TWN48 | Aug. 2023 |
+| DEFCON31 CTF Final, 3rd, TWN48 | Aug. 2023 |
 |:---------------------------------------------------------------- | ------------------------:|
 | Hacktheon 2023 Final, Finalist | Seoul, South Korea, May. 2023 |
-| DEFCON Final, 9th, Balsn.217@TSJ.tw |  Aug. 2022 |
+| DEFCON30 Final, 9th, Balsn.217@TSJ.tw |  Aug. 2022 |
 | 1337UP LIVE CTF, 8th, XxTSJxX | Online, 2022 |
-| DEFCON Qualifier, 23th, XxTSJxX | Online, 2021 |
+| DEFCON29 Qualifier, 23th, XxTSJxX | Online, 2021 |
 | VolgaCTF Qualifier, 9th, XxTSJxX | Online, 2021 |
 | Midnight Sun CTF Quals, 16th, XxTSJxX | Online, 2021 |
 
 #### Solo
 | Flare-On Challenge 9, Finisher #256 | Online, Oct. 2022 |
 |:---------------------------------------------------------------- | ------------------------:|
-| RuCTFE | Online, 2020 |
-| RedPwnCTF | Online, 2020 |
-| ångstromCTF | Online, 2020 |
-| HITCON CTF Qualifier | Online, 2019 |
+| | |
 
 ### Domestic CTF
 | 資安技能金盾獎 Final, 1st (海狗還要比到什麼時候) | Taipei, Nov. 2022 |
