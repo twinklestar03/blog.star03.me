@@ -93,7 +93,7 @@ int main()
 大半夜解了另一題 Reverse 題目 `Call`，這題算是讓我認識的 MSVC Runtime 的 Initialization 過程，也認識了 CRT 相關的 table 跟 IO Block structure (某種 FILE) 結構。
 但這些都不是這題的重點，我原先以為這題目是一個要動態跑起來才會有資訊的碗糕，結果到最後才發先根本不需要。
 
-在撞牆的過程中有把一些 indicatation 問朋友，獲得了一些猜想：像是要修好 PE Header, IAT 等等，結果最後發現就算 IAT 修好也不夠，有更多 CRT 相關的函數跟結構需要做 Patch。
+在撞牆的過程中有把一些 indication 問朋友，獲得了一些猜想：像是要修好 PE Header, IAT 等等，結果最後發現就算 IAT 修好也不夠，有更多 CRT 相關的函數跟結構需要做 Patch。
 其中我發現了一個最重要的點是 `_guard_check_icall_fptr` 這個東西會指向一個協助做 CET Check 用的 Function，而這個 function 會去查詢一張 Guarded funciton list，只有在這個表裡面的函數才可以通過 guard check。
 
 而這題目就是在 guard check 上面做出了 flag checker，只要將邏輯捋清楚後 solver script 就是五分鐘的事情了。
