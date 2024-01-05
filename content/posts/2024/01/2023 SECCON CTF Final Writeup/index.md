@@ -12,6 +12,9 @@ toc: true
 這是我在日本參加 SECCON 2023 Final 的詳細 Write-Up 文章。
 本篇文章只有著墨於我有較多參與的題目，其他只有沾到點邊的題目我就沒特別寫在文章內了。
 
+決賽只能四個人參加，不可以找外援，本次作為戰隊的 Reverse 主要戰力出戰本次的 SECCON CTF 決賽！
+本次一同作戰的隊友們：[@maple3142](https://blog.maple3142.net/)、[@nella17](https://github.com/nella17)、[@toxicpie](https://github.com/ToxicPie)
+
 我會另外寫一篇本次競賽之旅的遊記，如果有興趣可以關注接下來的文章更新喔！
 
 ## Day1
