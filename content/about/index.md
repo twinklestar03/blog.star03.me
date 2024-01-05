@@ -10,13 +10,15 @@ Here's TwinkleStar03, I'm Reverse-Engineering and Binary-Exploitation enthusiast
 - Username: TwinkleStar03
 - Email: `c3RhckB1bmRlZmluZWQuemlwCg==`  
 - NYCU CSIT Undergraduate
-- Security Research Intern @ CyCraft (2023~)
+- Intern Security Researcher @ CyCraft (Apr. 2023~)
 
 ## Contest
 ### International CTFs
 #### Play With Team
-| DEFCON31 CTF Final, 3rd, TWN48 | Aug. 2023 |
+| SECCON CTF Final, 3rd, ${CyStick} | Dec. 2023 |
 |:---------------------------------------------------------------- | ------------------------:|
+| DEFCON31 CTF Final, 3rd, TWN48 | Aug. 2023 |
+| SEKAI CTF, 4rd, ${CyStick} | Aug. 2023 |
 | Hacktheon 2023 Final, Finalist | Seoul, South Korea, May. 2023 |
 | DEFCON30 Final, 9th, Balsn.217@TSJ.tw |  Aug. 2022 |
 | 1337UP LIVE CTF, 8th, XxTSJxX | Online, 2022 |
@@ -30,19 +32,22 @@ Here's TwinkleStar03, I'm Reverse-Engineering and Binary-Exploitation enthusiast
 | | |
 
 ### Domestic CTF
-| 資安技能金盾獎 Final, 1st (海狗還要比到什麼時候) | Taipei, Nov. 2022 |
+| 資安技能金盾獎 Final, 1st (鄭老師叫我們不要亂取隊名) | Taipei, Nov. 2023 |
 |:---------------------------------------------------------------- | ------------------------:|
+| AEGIS 神盾杯 Final, 1st (好想進決賽) | Taipei, Nov. 2023 |
+| 跨國網路攻防演練 CyberOffensive and Defensive Exercise, 1st | Taipei, Oct. 2023 |
+| 資安技能金盾獎 Final, 1st (海狗還要比到什麼時候) | Taipei, Nov. 2022 |
 | AIS3 EOF Final, 1st (meow?) | Taipei, 2022  |
 | 資安技能金盾獎 Final, 1st (我不知道隊名) | Taipei, Nov. 2021 |
-| AIS3 EOF Final, 5th (CTF2NOP) | Taipei, 2021 |
-| HITCON x Balsn Taiwan CTF, 5th (Brain2NOP) | Taipei, 2021 |
-| Zyxel 榮耀資戰 Final, 6th (Ret2NOP) | Taipei, 2021 |
+| AIS3 EOF Final, 5th (CTF2NOP) | Taipei, Feb. 2021 |
+| HITCON x Balsn Taiwan CTF, 5th (Brain2NOP) | Taipei, Dec. 2020 |
+| Zyxel 榮耀資戰 Final, 6th (Ret2NOP) | Taipei, Jul. 2020 |
 | MyFirstCTF, 24th | Taipei, 2019 |
 
 ### Hackathon
 | ETHTaipei 2023 Hackathon, StarVoting | Gnosis Gold Award, PSE Winner, Hackathon Finalist | Apr. 2023 |
 |:---------------------------------------------------------------- | ------------ | ------------------------:|
-| AIS3 2020, 軟體開發安全第五組 | Awarded Project | Jul. 2023 |
+| AIS3 2020, 軟體開發安全第五組 | Awarded Project | Jul. 2020 |
 
 ### Robotic Competitions
 
@@ -68,27 +73,33 @@ Here's TwinkleStar03, I'm Reverse-Engineering and Binary-Exploitation enthusiast
 | 探討自動化程式弱點分析 @ 第四屆台灣好厲駭期末發表會 | Taipei, 2019 |
 
 ### Courses
-| 2023 ISIP 資安深根營隊 | Taipei, Jul. 2023 |
+| 中正大學資安社, Reverse-Engineering | Oct-Dec. 2023 | 
 |:---------------------------------------------------------------- | ------------------------:|
+| 台東大學資安社, Reverse-Engineering | Nov. 2023 | 
+| 交大網路安全策進社 112, Reverse-Engineering | Fall Semester, 2023 |
+| 2023 ISIP 資安深根營隊, Reverse-Engineering  | Taipei, Jul. 2023 |
 | SCIST 2023 Pwnable | Tainan, Jun. 2023 |
-| 交大網路安全策進社 111 Fall Semester, Game Hacking | 2023 | 
-| 交大網路安全策進社 110 Spring Semester, Reverse-Engineering | 2022 |
-| 交大網路安全策進社 110 Fall Semester, Reverse-Engineering | 2022 | 
+| 交大網路安全策進社 111, Game Hacking | Spring Semester, 2023 | 
+| 交大網路安全策進社 110, Reverse-Engineering | Spring Semester, 2022 |
+| 交大網路安全策進社 110, Reverse-Engineering | Fall Semester, 2022 | 
 
 ## Misc
 ### Contributions
-| AIS3 2023 | TA |
+| HITCON 2023 Final | Challenge Author |
 |:---------------------------------------------------------------- | ------------------------:|
+| AIS3 2023 | TA |
 | AIS3 EOF 2023 | Challenge Author / A&D Real-time CGI Design |
 
 ### 台灣好厲駭
 | 第四屆台灣好厲駭 | 結訓學員 |
 |:---------------------------------------------------------------- | ------------------------:|
 | 第五屆台灣好厲駭 | 結訓學員 |
+| 第六屆台灣好厲駭 | 結訓學員 |
 
 ### Community
-| SITCON 2022 | Attendee |
+| HITCON 2023 | Attendee |
 |:---------------------------------------------------------------- | ------------------------:|
+| SITCON 2022 | Attendee |
 | HITCON 2022 | Attendee |
 | SITCON 2021 | Speaker |
 | HITCON 2020 | Attendee |
