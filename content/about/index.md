@@ -20,7 +20,7 @@ Here's TwinkleStar03, I'm Reverse-Engineering and Binary-Exploitation enthusiast
 ## Contest
 ### International CTFs
 #### Play With Team
-| DEFCON31 CTF Final, Finalist, If this works 🤞 | Aug. 2024 |
+| DEFCON32 CTF Final, Finalist, If this works 🤞 | Aug. 2024 |
 |:---------------------------------------------------------------- | ------------------------:|
 | DEFCON31 CTF Final, 3rd, TWN48 | Aug. 2023 |
 | DEFCON30 Final, 9th, Balsn.217@TSJ.tw |  Aug. 2022 |
@@ -33,15 +33,18 @@ Here's TwinkleStar03, I'm Reverse-Engineering and Binary-Exploitation enthusiast
 | Midnight Sun CTF Quals, 16th, XxTSJxX | Online, 2021 |
 
 #### Solo
-| Flare-On Challenge 11, Finisher #61 | Online, Oct. 2024 |
+| Flare-On Challenge 11, Finisher #59 | Online, Oct. 2024 |
 |:---------------------------------------------------------------- | ------------------------:|
 | Flare-On Challenge 9, Finisher #256 | Online, Oct. 2022 |
 | | |
 
 ### Domestic CTF
 
-| 全國技能競賽 54 網路安全職類, 金牌 | Taipei, Jul. 2024 |
+| 資安技能金盾獎 Final, 1st (被海狗拋棄的前隊友) | Taipei, Nov. 2024 |
 |:---------------------------------------------------------------- | ------------------------:|
+| AEGIS 神盾杯 Final, 1st (希望能進決賽) | Tainan, Nov. 2024 |
+| 2024 HITCON CyberRange, 學生場第一名| Taipei, Oct. 2024 |
+| 全國技能競賽 54 網路安全職類, 金牌 | Taipei, Jul. 2024 |
 | 資安技能金盾獎 Final, 1st (鄭老師叫我們不要亂取隊名) | Taipei, Nov. 2023 |
 | 資安技能金盾獎 Final, 1st (海狗還要比到什麼時候) | Taipei, Nov. 2022 |
 | 資安技能金盾獎 Final, 1st (我不知道隊名) | Taipei, Nov. 2021 |
