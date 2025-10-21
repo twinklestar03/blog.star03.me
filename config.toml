@@ -9,6 +9,11 @@ pagination.pagerSize = 6
 
 googleAnalytics = 'G-L9LY0N0HGN'
 
+[minify]
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepWhitespace = true
+
 [params]
   # Control how many posts will be listed on list.html
   postsListItems = 10
