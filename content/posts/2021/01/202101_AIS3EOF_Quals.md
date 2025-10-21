@@ -1,5 +1,5 @@
 ---
-title: 'EOF2021 Quals Write-Up' 
+title: 'AIS3 EOF 2021 Quals Write-Up' 
 author: "TwinkleStar03"
 tags: [AIS3 EOF 2021]
 categories: [Write-Up]

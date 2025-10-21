@@ -16,7 +16,7 @@ googleAnalytics = 'G-L9LY0N0HGN'
   themeColor = "peach_yellow"
 
   # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 3
+  showMenuItems = 5
 
   # show selector to switch language
   showLanguageSelector = false
@@ -85,6 +85,11 @@ googleAnalytics = 'G-L9LY0N0HGN'
       logoHomeLink = "/"
 
     [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "home"
+        name = "Home"
+        url = "/"
+        weight = 1
       [[languages.en.menu.main]]
         identifier = "about"
         name = "About"
