@@ -3,11 +3,16 @@ languageCode = "en-us"
 # Add it only if you keep the theme in the `themes` directory.
 # Remove it if you use the theme as a remote Hugo Module.
 theme = "terminal"
+
 pagination.pagerSize = 6
+
 
 googleAnalytics = 'G-L9LY0N0HGN'
 
 [params]
+  # Control how many posts will be listed on list.html
+  postsListItems = 10
+
   # dir name of your main content (default is `content/posts`).
   # the list of set content will show up on your index page (baseurl).
   contentTypeName = "posts"
@@ -86,21 +91,19 @@ googleAnalytics = 'G-L9LY0N0HGN'
 
     [languages.en.menu]
       [[languages.en.menu.main]]
-        identifier = "home"
-        name = "Home"
-        url = "/"
-        weight = 1
-      [[languages.en.menu.main]]
         identifier = "about"
         name = "About"
         url = "/about"
+        weight = 1
+      [[languages.en.menu.main]]
+        identifier = "posts"
+        name = "Posts"
+        url = "/"
+        weight = 2
       [[languages.en.menu.main]]
         identifier = "categories"
         name = "Categories"
         url = "/categories"
-      [[languages.en.menu.main]]
-        identifier = "tags"
-        name = "Tags"
-        url = "/tags"
+        weight = 3
       
 
