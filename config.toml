@@ -103,7 +103,7 @@ googleAnalytics = 'G-L9LY0N0HGN'
       [[languages.en.menu.main]]
         identifier = "posts"
         name = "Posts"
-        url = "/"
+        url = "/posts"
         weight = 2
       [[languages.en.menu.main]]
         identifier = "categories"
